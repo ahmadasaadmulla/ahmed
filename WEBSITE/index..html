@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant White Website</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        header {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(0, 157, 255, 0.95);
+            box-shadow: 0 2px 10px rgb(0, 102, 255);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0px;
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #0088ff;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            margin-top: -80px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            background-color: #008cff;
+            color: #ffffff;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: #ffffff;
+            color: #0099ff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgb(0, 183, 255);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgb(0, 119, 255);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #0099ff;
+            color: #0059ff;
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background-color: #0099ff;
+            color: #0099ff;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 8rem 10%;
+            background-color: #0062ff;
+            color: #ffffff;
+
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #ffffff;
+            background: #0088ff;
+            box-shadow: #0095ff;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: rgb(255, 255, 255);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgb(0, 110, 255);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgb(247, 247, 247);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #f5f5f5;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #ffffff;
+            background-color: #ffffff;
+             
+        }
+
+        /* Drawing Canvas */
+        .drawing-section {
+            padding: 8rem 10%;
+            text-align: center;
+        }
+
+        .drawing-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+
+
+        .drawing-btn:hover {
+            background-color: #ffffff
+        }
+
+
+        .color-picker {
+            width: 40px;
+            height: 40px;
+            border: none;
+            cursor: pointer;
+            vertical-align: middle;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .brush-size {
+            width: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0080ff;
+            color: #ffffff;
+            padding: 4rem 10% 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 438px;
+            height: 5px;
+            background-color: #ffffff;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            background-color: #ffffff;
+            padding: 10px;
+            height: 200px;
+            border: 5px #0088ff double;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+            background-color: #0084ff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .footer-column ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: rgb(255, 255, 255);
+            border-radius: 5px;
+            padding: 2px;
+            }
+
+            h3{
+              background-color: #0091ff;
+              color: #ffffff;
+              padding: 12px;
+              margin: 8px;
+              border-radius: 5px;
+
+            }
+
+            h1{
+                background-color: #f5f5f5;
+                color: #0088ff;
+                border: 5px #0088ffff double;
+                width: 450px;
+                height: 200px;
+                border-radius: 5px;
+                
+            }
+        
+            .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #ffffff;
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+
+        p{
+            background-color: #ffffff;
+            color: #0088ff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 5%;
+            }
+
+            .hero {
+                padding: 0 5%;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                }
+
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <header>
+        <a href="#" class="logo">S__P__I</a>
+        <nav>
+            <ul>
+                <li><a href="#">زانیارییه کان</a></li>
+                <li><a href="#features">به شه کان</a></li>
+                <li><a href="#drawing">وێنه کان</a></li>
+                <li><a href="#contact">ڤیدیۆیه کان</a></li>
+                <li><a href="#contact">چالاکییه کان</a></li>
+                <li><a href="#contact">تایبه ته کان</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section class="hero">
+        <div class="hero-content">
+            <h3>WELCOME TO THE SHAQLAWA PRIVATE INSTITUTE</h3>
+            <p>Discover the perfect blend of simplicity and sophistication for your next project. Our platform offers intuitive tools to bring your creative visions to life.</p>
+            <div class="hero-buttons">
+              
+                <a href="#drawing" class="btn">Start Drawing</a>
+                <a href="#features" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="section-title">
+            <h2>Amazing Features</h2>
+            <p>Explore the powerful tools that will help you create stunning designs with ease.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">✏️</div>
+                <h3>Intuitive Drawing</h3>
+                <p>Our canvas provides a natural drawing experience with pressure sensitivity and smooth strokes.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Color Palette</h3>
+                <p>Choose from millions of colors and create custom palettes for your projects.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3>Real-time Sync</h3>
+                <p>Your work is automatically saved and synced across all your devices instantly.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="drawing-section" id="drawing">
+        <div class="section-title">
+            <h2>Interactive Drawing Canvas</h2>
+            <p>Try out our drawing tool right in your browser. Create something beautiful!</p>
+        </div>
+        
+
+
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>INFORMATION</h3>
+                <h1>WELCOME TO INSTITUTE SHAQLAWA CREATING IN 2019 ALSO THREE </h1>
+                
+            </div>
+            <div class="footer-column">
+                <h3>DEPARTMENTS</h3>
+                <ul>
+                    <li><a href="#">COMPUTER</a></li>
+                    <li><a href="#features">ACCOUNTING</a></li>
+                    <li><a href="#drawing">ADMINISTRATION</a></li>
+
+                </ul>
+
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('drawing-canvas');
+            const ctx = canvas.getContext('2d');
+            const brushBtn = document.getElementById('brush-btn');
+            const eraserBtn = document.getElementById('eraser-btn');
+            const colorPicker = document.getElementById('color-picker');
+            const brushSize = document.getElementById('brush-size');
+            const clearBtn = document.getElementById('clear-btn');
+            
+            let isDrawing = false;
+            let currentTool = 'brush';
+            let currentColor = '#000000';
+            let currentSize = 5;
+            
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+
+            ctx.strokeStyle = currentColor;
+            ctx.lineWidth = currentSize;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            
+
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', stopDrawing);
+            canvas.addEventListener('mouseout', stopDrawing);
+            
+            brushBtn.addEventListener('click', setBrushTool);
+            eraserBtn.addEventListener('click', setEraserTool);
+            colorPicker.addEventListener('input', updateColor);
+            brushSize.addEventListener('input', updateSize);
+            clearBtn.addEventListener('click', clearCanvas);
+            
+            function startDrawing(e) {
+                isDrawing = true;
+                draw(e);
+            }
+            
+            function draw(e) {
+                if (!isDrawing) return;
+                
+                ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(e.offsetX, e.offsetY);
+            }
+            
+            function stopDrawing() {
+                isDrawing = false;
+                ctx.beginPath();
+            }
+            
+            function setBrushTool() {
+                currentTool = 'brush';
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.strokeStyle = currentColor;
+                brushBtn.classList.add('active');
+                eraserBtn.classList.remove('active');
+            }
+            
+            function setEraserTool() {
+                currentTool = 'eraser';
+                ctx.globalCompositeOperation = 'destination-out';
+                eraserBtn.classList.add('active');
+                brushBtn.classList.remove('active');
+            }
+            
+            function updateColor(e) {
+                currentColor = e.target.value;
+                if (currentTool === 'brush') {
+                    ctx.strokeStyle = currentColor;
+                }
+            }
+            
+            function updateSize(e) {
+                currentSize = e.target.value;
+                ctx.lineWidth = currentSize;
+            }
+            
+            function clearCanvas() {
+                ctx.fillStyle = 'white';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                if (currentTool === 'brush') {
+                    ctx.strokeStyle = currentColor;
+                } else {
+                    ctx.strokeStyle = 'rgba(0,0,0,1)';
+                }
+                ctx.lineWidth = currentSize;
+            }
+            
+            document.querySelectorAll('a[href^="#"]').
+            forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
